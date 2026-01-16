@@ -19,17 +19,72 @@ interface SkillCategories {
   [key: string]: SkillCategory;
 }
 
+const defaultSkillCategories: SkillCategories = {
+  frontend: {
+    title: "Frontend",
+    skills: [
+      { name: "HTML/CSS", level: 85 },
+      { name: "JavaScript", level: 75 },
+      { name: "React", level: 65 },
+      { name: "TypeScript", level: 60 },
+      { name: "Tailwind CSS", level: 70 },
+      { name: "Astro", level: 60 },
+    ],
+  },
+  backend: {
+    title: "Backend",
+    skills: [
+      { name: "Rust", level: 70 },
+      { name: "Node.js", level: 55 },
+      { name: "Axum", level: 65 },
+      { name: "SeaORM", level: 60 },
+      { name: "SQLite", level: 70 },
+      { name: "REST API", level: 65 },
+    ],
+  },
+  tools: {
+    title: "Outils",
+    skills: [
+      { name: "Git", level: 75 },
+      { name: "Docker", level: 70 },
+      { name: "Apache", level: 65 },
+      { name: "Linux", level: 70 },
+      { name: "VS Code", level: 80 },
+      { name: "CLI Tools", level: 65 },
+    ],
+  },
+};
+
+const defaultTechnologies = [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "React",
+  "TypeScript",
+  "Astro",
+  "Tailwind CSS",
+  "Rust",
+  "Axum",
+  "SeaORM",
+  "SQLite",
+  "Docker",
+  "Apache",
+  "Git",
+  "Linux",
+  "Node.js",
+];
+
 export function Skills() {
   const skillCategories: SkillCategories = import.meta.env
     .PUBLIC_SKILL_CATEGORIES
     ? JSON.parse(import.meta.env.PUBLIC_SKILL_CATEGORIES)
-    : {};
+    : defaultSkillCategories;
 
   const technologies: string[] = import.meta.env.PUBLIC_TECHNOLOGIES
     ? import.meta.env.PUBLIC_TECHNOLOGIES.split(",").map((tech: string) =>
         tech.trim()
       )
-    : [];
+    : defaultTechnologies;
 
   return (
     <section id="skills" className="py-24 md:py-32">

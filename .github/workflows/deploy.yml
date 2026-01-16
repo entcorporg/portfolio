@@ -46,8 +46,6 @@ jobs:
         run: pnpm build
         env:
           PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
-          PUBLIC_TECHNOLOGIES: ${{ secrets.PUBLIC_TECHNOLOGIES }}
-          PUBLIC_SKILL_CATEGORIES: ${{ secrets.PUBLIC_SKILL_CATEGORIES }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
