@@ -8,6 +8,7 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://portfolio.entcorporg.com",
   output: "static",
   build: {
     inlineStylesheets: "always",

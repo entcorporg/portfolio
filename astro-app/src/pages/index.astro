@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { Portfolio } from "../components/portfolio/Portfolio";
+import { CookieConsent } from "../components/CookieConsent";
 ---
 
 <html lang="fr">
@@ -41,5 +42,6 @@ import { Portfolio } from "../components/portfolio/Portfolio";
 
   <body class="antialiased">
     <Portfolio client:idle />
+    <CookieConsent client:load />
   </body>
 </html>
