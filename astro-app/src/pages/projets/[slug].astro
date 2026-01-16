@@ -1,0 +1,14 @@
+---
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import { ProjectDetail } from "../../content/ProjectDetail";
+
+export function getStaticPaths() {
+  return [{ params: { slug: "librairie-independante" } }];
+}
+
+const { slug } = Astro.params;
+---
+
+<ProjectLayout>
+  <ProjectDetail slug={slug!} client:load />
+</ProjectLayout>

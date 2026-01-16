@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Librairie L'indépendante - Livres qui vous inspirent</title>
+    <meta name="description"
+        content="La librairie L'indépendante vous accueille tous les jours. Littérature, polars, poésie, philosophie, BD pour tous les âges. Découvrez notre sélection du mois.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="./img/bandeau.webp" as="image" type="image/webp">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap">
+    </noscript>
+
+    <!-- CSS critique inline pour rendu immédiat -->
+    <style>
+        /* Reset & base */
+        * {
+            box-sizing: border-box;
+        }
+
+        body.no-class {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Verdana, sans-serif;
+        }
+
+        .max-width-960px {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .marge-gauche-50px {
+            margin-left: 50px;
+        }
+
+        .texte-centre {
+            text-align: center;
+        }
+
+        .color-noir {
+            color: #000;
+        }
+
+        /* Titre principal */
+        .titre-principal {
+            font-family: 'Dancing Script', cursive;
+            font-size: 34px;
+            font-weight: 900;
+            color: #aa3322;
+            margin: 10px 0;
+        }
+
+        /* Bandeau */
+        .bandeau {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 960 / 150;
+            display: block;
+        }
+
+        /* Menu */
+        .menu-principal ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            background: #aa3322;
+            text-align: center;
+        }
+
+        .menu-principal ul li {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .menu-principal ul li a {
+            display: block;
+            padding: 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* R\u00e9server l'espace pour \u00e9viter CLS */
+        #header-container {
+            min-height: 244px;
+        }
+
+        #footer-container {
+            min-height: 100px;
+        }
+    </style>
+
+    <!-- CSS complet chargé normalement pour FCP rapide -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/general.css">
+    <link rel="icon" href="./img/favicon.png" type="image/png">
+</head>
+
+<body class="no-class">
+    <div class="max-width-960px">
+        <!-- Le header sera injecté ici par JavaScript -->
+        <div id="header-container"></div>
+
+        <main class="marge-gauche-50px">
+            <h1 class="texte-centre color-noir">Des livres qui vous inspirent</h1>
+            <section class="section-principale">
+                <div class="color-noir">
+                    <h2>L'indépendante : libre et joyeuse</h2>
+                    <p>La librairie L'indépendante vous accueille tous les jours pour vous offrir le meilleur des
+                        livres.
+                        Littérature, polars,
+                        poésie, philosophie, BD pour tous les âges et toutes les bourses. Venez découvrir notre espace
+                        tentaculaire, nos
+                        rayonnages multiformes et nos libraires joyeux.
+                        <br>
+                        <a href="/presentation">>> En savoir plus</a>
+                    </p>
+                </div>
+            </section>
+
+            <section class="section-secondaire">
+                <div class="color-noir">
+                    <h2>Lecture du soir</h2>
+                    <p>
+                        <strong>Notre sélection du mois</strong>
+                        <br>
+                        Chaque mois, notre équipe vous propose une sélection de livres à (re)découvrir.
+                        <br>
+                        <a href="/nos-coups-de-coeurs">>> En savoir plus</a>
+                    </p>
+                </div>
+            </section>
+        </main>
+        <div id="footer-container"></div>
+        <script src="./js/components.js" defer></script>
+    </div>
+
+</body>
+
+</html>

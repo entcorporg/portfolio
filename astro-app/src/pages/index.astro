@@ -1,0 +1,45 @@
+---
+import "../styles/global.css";
+import { Portfolio } from "../components/portfolio/Portfolio";
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Diogo Pires - Développeur Full Stack</title>
+    <meta
+      name="description"
+      content="Portfolio de Diogo Pires, développeur Full Stack passionné par la création d'expériences web modernes et performantes."
+    />
+    <meta
+      name="keywords"
+      content="développeur, full stack, react, typescript, portfolio, web"
+    />
+
+    <!-- Preconnect to external origins -->
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Diogo Pires - Développeur Full Stack" />
+    <meta
+      property="og:description"
+      content="Portfolio de Diogo Pires, développeur Full Stack passionné par la création d'expériences web modernes et performantes."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Smooth scrolling -->
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+
+  <body class="antialiased">
+    <Portfolio client:idle />
+  </body>
+</html>

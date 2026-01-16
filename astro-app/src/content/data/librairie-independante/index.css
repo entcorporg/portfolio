@@ -1,0 +1,52 @@
+/* ===== VARIABLES CSS ===== */
+:root {
+    --color-rouge-1: #aa3322;
+    --color-rouge-2: #721717;
+    --color-noir: #000000;
+    --color-blanc: #ffffff;
+    --color-gris-1: #cccccc;
+    --color-gris-2: #aaaaaa;
+    --color-gris-3: #ededed;
+    --background-rouge-1: #aa3322;
+    --background-rouge-2: #721717;
+    --background-gris-1: #cccccc;
+    --background-gris-2: #aaaaaa;
+    --background-gris-3: #ededed;
+    --background-blanc: #ffffff;
+    --background-noir: #000000;
+    --size-xs: 12px;
+    --size-sm: 14px;
+    --size-md: 20px;
+    --size-lg: 26px;
+    --size-xl: 34px;
+    --font-xs: 100;
+    --font-sm: 300;
+    --font-md: 500;
+    --font-lg: 700;
+    --font-xl: 900;
+}
+
+/* ===== bandeau ===== */
+.bandeau {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 960 / 150;
+    display: block;
+}
+
+/* ===== section principale ===== */
+.section-principale a {
+    text-decoration: none;
+    color: var(--color-rouge-1);
+    font-size: var(--size-sm);
+    text-decoration: underline;
+}
+
+/* ===== section secondaire ===== */
+
+.section-secondaire a {
+    text-decoration: none;
+    color: var(--color-rouge-1);
+    font-size: var(--size-sm);
+    text-decoration: underline;
+}
