@@ -1,0 +1,14 @@
+# robots.txt pour portfolio.clairtyx.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://portfolio.clairtyx.com/sitemap-index.xml
+
+# Crawl-delay pour éviter une charge excessive
+Crawl-delay: 1
+
+# Bloquer les fichiers sensibles
+Disallow: /api/
+Disallow: /*.json$
