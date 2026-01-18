@@ -1,0 +1,16 @@
+services:
+  apache:
+    image: httpd:alpine
+    container_name: le-globule
+    ports:
+      - "3001:80"
+    volumes:
+      - ./site:/usr/local/apache2/htdocs:ro
+      - ./apache.conf:/usr/local/apache2/conf/httpd.conf:ro
+    restart: unless-stopped
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge

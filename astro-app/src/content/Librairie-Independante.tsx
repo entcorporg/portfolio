@@ -35,112 +35,87 @@ import { HoleBackground as Hole } from "@/components/animate-ui/components/backg
 import { Button as AnimatedButton } from "@/components/animate-ui/components/buttons/button";
 import { librarieIndependanteData } from "@/content/data/librairie-independante";
 
-interface ProjectDetailProps {
-  slug: string;
-}
-
-export function ProjectDetail({ slug }: ProjectDetailProps) {
-  // Données du projet
-  const projectsData: Record<string, any> = {
-    "librairie-independante": {
-      title: "Librairie L'indépendante",
-      description:
-        "Site vitrine d'une librairie indépendante avec optimisation poussée des performances web. Projet éducatif démontrant l'excellence technique en HTML5, CSS3 et JavaScript vanilla, avec des scores Lighthouse parfaits et des techniques d'optimisation avancées. Architecture component-based, images responsives avec srcset, WebP moderne, et déploiement Docker professionnel.",
-      image:
-        "https://raw.githubusercontent.com/entcorporg/cour_Se_Perfectionner_en_HTML-CSS/main/docs/img/bandeau.webp",
-      technologies: [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "Docker",
-        "Apache",
-        "WebP",
-        "Performance",
-        "SEO",
-        "Responsive",
-        "Component Architecture",
-      ],
-      githubUrl:
-        "https://github.com/entcorporg/cour_Se_Perfectionner_en_HTML-CSS",
-      liveUrl: "https://cour-se-perfectionner-en-html-css.clairtyx.com/",
-      featured: true,
-      date: "Janvier 2026",
-      overview:
-        "Ce projet démontre l'excellence en optimisation web avec un focus sur la performance, l'accessibilité et les bonnes pratiques modernes. Le site atteint un score parfait de 100/100 en Performance et Best Practices sur Google Lighthouse grâce à une série d'optimisations techniques avancées : images WebP avec srcset responsive (réduction de 82% sur mobile), preload des ressources critiques, inline CSS pour le rendu immédiat, architecture component-based en JavaScript vanilla, et déploiement Docker avec configuration Apache optimale. Le projet démontre qu'il est possible d'atteindre des performances exceptionnelles sans framework lourd, en maîtrisant les fondamentaux du web.",
-      challenges: [
-        "Atteindre un score de 100/100 en Performance sur Google Lighthouse avec LCP < 1.5s",
-        "Optimiser les images avec conversion WebP automatique et génération de multiples tailles (480w, 768w, 960w)",
-        "Implémenter une architecture component-based en JavaScript vanilla sans framework",
-        "Assurer une accessibilité WCAG 2.1 niveau AA (score 92/100)",
-        "Containerisation Docker complète avec Apache optimisé (Gzip, cache stratégique, headers de sécurité)",
-        "Maintenir un CLS de 0.02 avec réservation d'espace pour les images et fonts",
-        "Configurer un système de build avec scripts bash pour l'optimisation automatique des assets",
-      ],
-      metrics: [
-        { label: "Performance", value: "100", icon: Rocket },
-        { label: "Accessibilité", value: "92", icon: Target },
-        { label: "Meilleures pratiques", value: "100", icon: CheckCircle2 },
-        { label: "SEO", value: "100", icon: BarChart3 },
-      ],
-      features: [
-        {
-          title: "Performance 100/100 Lighthouse",
-          description:
-            "Score Lighthouse parfait obtenu grâce au preload des ressources critiques, inline CSS, compression WebP (48% de réduction), et optimisation LCP de 1.4s. Images responsive avec <picture> et srcset pour réduire de 82% le poids sur mobile. CLS de 0.02 avec réservation d'espace explicite.",
-          icon: Rocket,
-        },
-        {
-          title: "Images Responsives Multi-Formats",
-          description:
-            "Système d'images avancé avec élément <picture>, srcset avec 3 tailles (480w, 768w, 960w), conversion WebP automatique via scripts bash, et fallback JPEG. Attributs width/height pour éviter le CLS. fetchpriority='high' sur l'image LCP. Scripts create-responsive-images.sh et optimize-image.sh pour automatisation.",
-          icon: Sparkles,
-        },
-        {
-          title: "Architecture Composants JavaScript",
-          description:
-            "JavaScript modulaire avec HeaderComposant (accepte titre, menuItems, imageUrl), CardLivreComposant (titre, auteur, année, genre, description), et FooterComposant. Génération dynamique du DOM avec template literals. Approche DRY et réutilisable tout en restant en vanilla JS. Chargement différé avec defer.",
-          icon: Target,
-        },
-        {
-          title: "Design System CSS avec Variables",
-          description:
-            "Système de design centralisé avec :root pour variables (--color-rouge-1, --size-xs, --font-xl). Classes utilitaires réutilisables (.texte-centre, .max-width-960px, .card-livre). Flexbox pour layouts et inline-block pour le menu. Nomenclature BEM pour les composants. Aspect-ratio pour maintenir proportions.",
-          icon: Zap,
-        },
-        {
-          title: "Docker + Apache Optimisé",
-          description:
-            "Image Alpine légère avec configuration Apache personnalisée. Compression Gzip via mod_deflate pour tous les text/. Cache stratégique : 1 an pour images/CSS/JS, 5 minutes pour HTML. Headers de sécurité (X-Content-Type-Options, X-Frame-Options, X-XSS-Protection). Scripts bash intégrés au workflow.",
-          icon: BarChart3,
-        },
-        {
-          title: "SEO & Accessibilité Excellents",
-          description:
-            "SEO 100/100 avec meta descriptions riches, structure sémantique HTML5 (header, nav, main, footer, section), balises alt descriptives. Accessibilité 92/100 avec navigation aria-label, contraste WCAG AA, ordre de tabulation logique, et support clavier complet. Preconnect pour fonts, preload pour LCP.",
-          icon: CheckCircle2,
-        },
-      ],
-      ...librarieIndependanteData,
-    },
+export function LibrairieIndependante() {
+  const project = {
+    title: "Librairie L'indépendante",
+    description:
+      "Site vitrine d'une librairie indépendante avec optimisation poussée des performances web. Projet éducatif démontrant l'excellence technique en HTML5, CSS3 et JavaScript vanilla, avec des scores Lighthouse parfaits et des techniques d'optimisation avancées. Architecture component-based, images responsives avec srcset, WebP moderne, et déploiement Docker professionnel.",
+    image:
+      "https://raw.githubusercontent.com/entcorporg/cour_Se_Perfectionner_en_HTML-CSS/main/docs/img/bandeau.webp",
+    technologies: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Docker",
+      "Apache",
+      "WebP",
+      "Performance",
+      "SEO",
+      "Responsive",
+      "Component Architecture",
+    ],
+    githubUrl:
+      "https://github.com/entcorporg/cour_Se_Perfectionner_en_HTML-CSS",
+    liveUrl: "https://cour-se-perfectionner-en-html-css.clairtyx.com/",
+    featured: true,
+    date: "Janvier 2026",
+    overview:
+      "Ce projet démontre l'excellence en optimisation web avec un focus sur la performance, l'accessibilité et les bonnes pratiques modernes. Le site atteint un score parfait de 100/100 en Performance et Best Practices sur Google Lighthouse grâce à une série d'optimisations techniques avancées : images WebP avec srcset responsive (réduction de 82% sur mobile), preload des ressources critiques, inline CSS pour le rendu immédiat, architecture component-based en JavaScript vanilla, et déploiement Docker avec configuration Apache optimale. Le projet démontre qu'il est possible d'atteindre des performances exceptionnelles sans framework lourd, en maîtrisant les fondamentaux du web.",
+    challenges: [
+      "Atteindre un score de 100/100 en Performance sur Google Lighthouse avec LCP < 1.5s",
+      "Optimiser les images avec conversion WebP automatique et génération de multiples tailles (480w, 768w, 960w)",
+      "Implémenter une architecture component-based en JavaScript vanilla sans framework",
+      "Assurer une accessibilité WCAG 2.1 niveau AA (score 92/100)",
+      "Containerisation Docker complète avec Apache optimisé (Gzip, cache stratégique, headers de sécurité)",
+      "Maintenir un CLS de 0.02 avec réservation d'espace pour les images et fonts",
+      "Configurer un système de build avec scripts bash pour l'optimisation automatique des assets",
+    ],
+    metrics: [
+      { label: "Performance", value: "100", icon: Rocket },
+      { label: "Accessibilité", value: "92", icon: Target },
+      { label: "Meilleures pratiques", value: "100", icon: CheckCircle2 },
+      { label: "SEO", value: "100", icon: BarChart3 },
+    ],
+    features: [
+      {
+        title: "Performance 100/100 Lighthouse",
+        description:
+          "Score Lighthouse parfait obtenu grâce au preload des ressources critiques, inline CSS, compression WebP (48% de réduction), et optimisation LCP de 1.4s. Images responsive avec <picture> et srcset pour réduire de 82% le poids sur mobile. CLS de 0.02 avec réservation d'espace explicite.",
+        icon: Rocket,
+      },
+      {
+        title: "Images Responsives Multi-Formats",
+        description:
+          "Système d'images avancé avec élément <picture>, srcset avec 3 tailles (480w, 768w, 960w), conversion WebP automatique via scripts bash, et fallback JPEG. Attributs width/height pour éviter le CLS. fetchpriority='high' sur l'image LCP. Scripts create-responsive-images.sh et optimize-image.sh pour automatisation.",
+        icon: Sparkles,
+      },
+      {
+        title: "Architecture Composants JavaScript",
+        description:
+          "JavaScript modulaire avec HeaderComposant (accepte titre, menuItems, imageUrl), CardLivreComposant (titre, auteur, année, genre, description), et FooterComposant. Génération dynamique du DOM avec template literals. Approche DRY et réutilisable tout en restant en vanilla JS. Chargement différé avec defer.",
+        icon: Target,
+      },
+      {
+        title: "Design System CSS avec Variables",
+        description:
+          "Système de design centralisé avec :root pour variables (--color-rouge-1, --size-xs, --font-xl). Classes utilitaires réutilisables (.texte-centre, .max-width-960px, .card-livre). Flexbox pour layouts et inline-block pour le menu. Nomenclature BEM pour les composants. Aspect-ratio pour maintenir proportions.",
+        icon: Zap,
+      },
+      {
+        title: "Docker + Apache Optimisé",
+        description:
+          "Image Alpine légère avec configuration Apache personnalisée. Compression Gzip via mod_deflate pour tous les text/. Cache stratégique : 1 an pour images/CSS/JS, 5 minutes pour HTML. Headers de sécurité (X-Content-Type-Options, X-Frame-Options, X-XSS-Protection). Scripts bash intégrés au workflow.",
+        icon: BarChart3,
+      },
+      {
+        title: "SEO & Accessibilité Excellents",
+        description:
+          "SEO 100/100 avec meta descriptions riches, structure sémantique HTML5 (header, nav, main, footer, section), balises alt descriptives. Accessibilité 92/100 avec navigation aria-label, contraste WCAG AA, ordre de tabulation logique, et support clavier complet. Preconnect pour fonts, preload pour LCP.",
+        icon: CheckCircle2,
+      },
+    ],
+    ...librarieIndependanteData,
   };
-
-  const project = projectsData[slug];
-
-  if (!project) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center space-y-6">
-          <h1 className="text-4xl font-bold">Projet non trouvé</h1>
-          <p className="text-muted-foreground">
-            Le projet "{slug}" n'existe pas.
-          </p>
-          <Button asChild>
-            <a href="/#projects">Retour aux projets</a>
-          </Button>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-background">

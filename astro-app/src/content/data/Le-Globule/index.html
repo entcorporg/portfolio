@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Le globule - Site web présentant des informations détaillées sur les globules et leurs caractéristiques scientifiques.">
+    <meta name="theme-color" content="#139c19">
+    <title>Le Globule - Exercice 1 Display</title>
+    <script src="/scripts/sheet.js" type="module"></script>
+    <link rel="stylesheet" href="/css/standard.css">
+</head>
+
+<body class="m-0 font-sans bg-linear-to-b from-000 to-888">
+    <div class="w-full max-w-7xl mx-auto my-4 md:my-10 bg-blanc rounded-xl px-4 md:px-0">
+        <!-- Overlay for mobile nav -->
+        <div id="drawer-overlay"
+            class="fixed inset-0 bg-111 z-40 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+        </div>
+        <header class="text-center p-5 pb-12">
+            <div class="flex items-center justify-between md:block">
+                <h1 class="text-139c19 text-5xl md:text-7xl font-bold text-shadow-lg shadow-000">
+                    Le globule
+                </h1> <!-- Hamburger button for mobile --> <button id="drawer-trigger"
+                    class="md:hidden p-2 text-139c19 hover:bg-gray-100 rounded-lg" aria-label="Ouvrir le menu"> <svg
+                        xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg> </button>
+            </div>
+            <nav id="nav-drawer"
+                class="fixed md:static top-0 left-0 right-0 w-full md:w-auto -translate-y-full md:translate-y-0 transition-transform duration-300 ease-in-out bg-transparent md:bg-transparent z-40 md:z-auto md:pt-0 max-h-screen md:max-h-none overflow-y-auto md:overflow-visible text-left mt-0 md:mt-2.5 rounded-none md:rounded-full"
+                aria-label="Navigation principale"> <!-- Close button for mobile --> <button id="drawer-close"
+                    class="absolute top-4 right-4 p-2 z-50 rounded-lg hover:bg-111 md:hidden"
+                    aria-label="Fermer le menu"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg> </button>
+                <div class="bg-000 rounded-none md:rounded-full px-4 md:px-0">
+                    <ul class="list-none p-0 my-1.5 text-center flex flex-col md:flex-row md:justify-start">
+                        <li class="inline-block relative"> <a href="/"
+                                class="menu-link inline-block py-4 px-5 hover:underline text-blanc text-shadow-000">Accueil</a>
+                        </li>
+                        <li class="has-submenu group inline-block relative w-full md:w-auto"> <button
+                                class="submenu-toggle menu-link flex items-center justify-center gap-2 w-full md:w-auto py-4 px-5 hover:underline hover:bg-linear-to-b from-19b123 to-139c19 text-blanc text-shadow-000 cursor-pointer border-0 bg-transparent"
+                                aria-expanded="false" aria-haspopup="true" data-submenu="submenu-1"> <span>Tous nos
+                                    choix</span> <svg class="chevron md:hidden transition-transform duration-200"
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg> </button>
+                            <div id="submenu-1"
+                                class="submenu-content hidden md:group-hover:block static md:absolute left-0 md:-left-1.5 top-auto md:top-14 w-full md:w-lg z-50">
+                                <div class="block bg-444 px-1.5">
+                                    <div class="grid grid-cols-2">
+                                        <div
+                                            class="w-full p-5 text-blanc bg-linear-to-b from-19b123 to-139c19 text-center">
+                                            <p class="text-lg font-bold text-000 my-2.5">
+                                                Nos choix 1
+                                            </p>
+                                            <ul>
+                                                <li> <a href="/choix/1/1">Choix 1.1</a></li>
+                                                <li><a href="/choix/1/2">Choix 1.2</a></li>
+                                                <li><a href="/choix/1/3">Choix 1.3</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex justify-end items-end w-full">
+                                            <picture> <!-- Version WebP (moderne, léger) -->
+                                                <source type="image/webp"
+                                                    srcset="/img/menu-01-480w.webp 480w, /img/menu-01-768w.webp 768w, /img/menu-01.webp 280w"
+                                                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                                <!-- Version JPG (fallback pour anciens navigateurs) -->
+                                                <source type="image/jpeg"
+                                                    srcset="/img/menu-01-480w.jpg 480w, /img/menu-01-768w.jpg 768w, /img/menu-01.jpg 280w"
+                                                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                                <!-- Image par défaut --> <img src="/img/menu-01.jpg" alt="Nos choix 1"
+                                                    width="280" height="176" loading="eager" class="w-full h-full">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block bg-444 px-1.5">
+                                    <div class="grid grid-cols-2">
+                                        <div
+                                            class="w-full p-5 text-blanc bg-linear-to-b from-19b123 to-139c19 text-center">
+                                            <p class="text-lg font-bold text-000 my-2.5">
+                                                Nos choix 2
+                                            </p>
+                                            <ul>
+                                                <li><a href="/choix/2/1">Choix 2.1</a></li>
+                                                <li><a href="/choix/2/2">Choix 2.2</a></li>
+                                                <li><a href="/choix/2/3">Choix 2.3</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex justify-end items-end w-full">
+                                            <picture> <!-- Version WebP (moderne, léger) -->
+                                                <source type="image/webp"
+                                                    srcset="/img/menu-03-480w.webp 480w, /img/menu-03-768w.webp 768w, /img/menu-03.webp 280w"
+                                                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                                <!-- Version JPG (fallback pour anciens navigateurs) -->
+                                                <source type="image/jpeg"
+                                                    srcset="/img/menu-03-480w.jpg 480w, /img/menu-03-768w.jpg 768w, /img/menu-03.jpg 280w"
+                                                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                                <!-- Image par défaut --> <img src="/img/menu-03.jpg" alt="Nos choix 2"
+                                                    width="280" height="176" loading="eager" class="w-full h-full">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block bg-444 px-1.5 pb-1.5">
+                                    <div class="grid grid-cols-2">
+                                        <div
+                                            class="w-full p-5 text-blanc bg-linear-to-b from-19b123 to-139c19 text-center">
+                                            <p class="text-lg font-bold text-000 my-2.5">
+                                                Nos choix 3
+                                            </p>
+                                            <ul>
+                                                <li><a href="/choix/3/1">Choix 3.1</a></li>
+                                                <li><a href="/choix/3/2">Choix 3.2</a></li>
+                                                <li><a href="/choix/3/3">Choix 3.3</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex justify-end items-end w-full">
+                                            <picture> <!-- Version WebP (moderne, léger) -->
+                                                <source type="image/webp"
+                                                    srcset="/img/menu-02-480w.webp 480w, /img/menu-02-768w.webp 768w, /img/menu-02.webp 280w"
+                                                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                                <!-- Version JPG (fallback pour anciens navigateurs) -->
+                                                <source type="image/jpeg"
+                                                    srcset="/img/menu-02-480w.jpg 480w, /img/menu-02-768w.jpg 768w, /img/menu-02.jpg 280w"
+                                                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                                <!-- Image par défaut --> <img src="/img/menu-02.jpg" alt="Nos choix 3"
+                                                    width="280" height="176" loading="eager" class="w-full h-full">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="has-submenu group inline-block relative w-full md:w-auto"> <button
+                                class="submenu-toggle menu-link flex items-center justify-center gap-2 w-full md:w-auto py-4 px-5 hover:underline hover:bg-linear-to-b from-19b123 to-139c19 text-blanc text-shadow-000 cursor-pointer border-0 bg-transparent"
+                                aria-expanded="false" aria-haspopup="true" data-submenu="submenu-2"> <span>Nos triangles
+                                    ronds</span> <svg class="chevron md:hidden transition-transform duration-200"
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg> </button>
+                            <div id="submenu-2"
+                                class="submenu-content hidden md:group-hover:block static md:absolute left-0 md:-left-1.5 top-auto md:top-14 w-full md:w-lg z-50">
+                                <div class="block bg-444 px-1.5">
+                                    <div class="grid grid-cols-2">
+                                        <div
+                                            class="w-full p-5 text-blanc bg-linear-to-b from-19b123 to-139c19 text-center">
+                                            <p class="text-lg font-bold text-000 my-2.5">
+                                                Nos triangles 1
+                                            </p>
+                                            <ul>
+                                                <li> <a href="/triangle/1/1">Triangle 1.1</a></li>
+                                                <li><a href="/triangle/1/2">Triangle 1.2</a></li>
+                                                <li><a href="/triangle/1/3">Triangle 1.3</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex justify-end items-end w-full">
+                                            <picture> <!-- Version WebP (moderne, léger) -->
+                                                <source type="image/webp"
+                                                    srcset="/img/menu-04-480w.webp 480w, /img/menu-04-768w.webp 768w, /img/menu-04.webp 280w"
+                                                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                                <!-- Version JPG (fallback pour anciens navigateurs) -->
+                                                <source type="image/jpeg"
+                                                    srcset="/img/menu-04-480w.jpg 480w, /img/menu-04-768w.jpg 768w, /img/menu-04.jpg 280w"
+                                                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                                <!-- Image par défaut --> <img src="/img/menu-04.jpg"
+                                                    alt="Nos triangles 1" width="280" height="176" loading="eager"
+                                                    class="w-full h-full">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block bg-444 px-1.5">
+                                    <div class="grid grid-cols-2">
+                                        <div
+                                            class="w-full p-5 text-blanc bg-linear-to-b from-19b123 to-139c19 text-center">
+                                            <p class="text-lg font-bold text-000 my-2.5">
+                                                Nos surtriangles 2
+                                            </p>
+                                            <ul>
+                                                <li><a href="/surtriangle/1/1">Surtriangle 1.1</a></li>
+                                                <li><a href="/surtriangle/1/2">Surtriangle 1.2</a></li>
+                                                <li><a href="/surtriangle/1/3">Surtriangle 1.3</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex justify-end items-end w-full">
+                                            <picture> <!-- Version WebP (moderne, léger) -->
+                                                <source type="image/webp"
+                                                    srcset="/img/menu-06-480w.webp 480w, /img/menu-06-768w.webp 768w, /img/menu-06.webp 280w"
+                                                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                                <!-- Version JPG (fallback pour anciens navigateurs) -->
+                                                <source type="image/jpeg"
+                                                    srcset="/img/menu-06-480w.jpg 480w, /img/menu-06-768w.jpg 768w, /img/menu-06.jpg 280w"
+                                                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                                <!-- Image par défaut --> <img src="/img/menu-06.jpg"
+                                                    alt="Nos surtriangles 2" width="280" height="176" loading="eager"
+                                                    class="w-full h-full">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block bg-444 px-1.5 pb-1.5">
+                                    <div class="grid grid-cols-2">
+                                        <div
+                                            class="w-full p-5 text-blanc bg-linear-to-b from-19b123 to-139c19 text-center">
+                                            <p class="text-lg font-bold text-000 my-2.5">
+                                                Nos surtriangles 3
+                                            </p>
+                                            <ul>
+                                                <li><a href="/surtriangle/2/1">Surtriangle 3.1</a></li>
+                                                <li><a href="/surtriangle/2/2">Surtriangle 3.2</a></li>
+                                                <li><a href="/surtriangle/2/3">Surtriangle 3.3</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex justify-end items-end w-full">
+                                            <picture> <!-- Version WebP (moderne, léger) -->
+                                                <source type="image/webp"
+                                                    srcset="/img/menu-05-480w.webp 480w, /img/menu-05-768w.webp 768w, /img/menu-05.webp 280w"
+                                                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                                <!-- Version JPG (fallback pour anciens navigateurs) -->
+                                                <source type="image/jpeg"
+                                                    srcset="/img/menu-05-480w.jpg 480w, /img/menu-05-768w.jpg 768w, /img/menu-05.jpg 280w"
+                                                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                                <!-- Image par défaut --> <img src="/img/menu-05.jpg"
+                                                    alt="Nos surtriangles 3" width="280" height="176" loading="eager"
+                                                    class="w-full h-full">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="inline-block relative"> <a href="/contacts"
+                                class="menu-link inline-block py-4 px-5 hover:underline text-blanc text-shadow-000">Contacts</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header> <!-- Sheet trigger button for mobile --> <button id="sheet-trigger"
+            class="fixed bottom-6 right-6 p-4 bg-139c19 text-blanc rounded-full shadow-lg hover:bg-19b123 z-30 lg:hidden"
+            aria-label="Ouvrir le panneau latéral"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+            </svg> </button>
+        <main class="flex flex-col lg:flex-row lg:justify-between px-2 md:pr-5 h-full">
+            <div class="order-first lg:order-last w-full lg:w-[30%] mb-6 lg:mb-0"> <!-- Overlay for mobile -->
+                <div id="sheet-overlay"
+                    class="fixed inset-0 bg-black/80 z-40 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden">
+                </div>
+                <aside id="sidebar-sheet"
+                    class="fixed lg:sticky right-0 top-0 bottom-0 lg:self-start w-[85%] sm:w-96 lg:w-full h-full lg:h-auto bg-blanc z-50 lg:z-auto transform translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out overflow-y-auto"
+                    aria-label="Contenu complémentaire"> <!-- Close button for mobile --> <button id="sheet-close"
+                        class="absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-100 lg:hidden"
+                        aria-label="Fermer le panneau"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg> </button>
+                    <section
+                        class="align-top border-l border-border shadow-[-5px_5px_5px_0px_oklch(0.269_0_0/15%)] pt-16 lg:pt-0">
+                        <div class="grid grid-rows-2 gap-5">
+                            <div>
+                                <picture> <!-- Version WebP (moderne, léger) -->
+                                    <source type="image/webp"
+                                        srcset="/img/pasglobe-480w.webp 480w, /img/pasglobe-768w.webp 768w, /img/pasglobe.webp 350w"
+                                        sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                    <!-- Version JPG (fallback pour anciens navigateurs) -->
+                                    <source type="image/jpeg"
+                                        srcset="/img/pasglobe-480w.jpg 480w, /img/pasglobe-768w.jpg 768w, /img/pasglobe.jpg 350w"
+                                        sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                    <!-- Image par défaut --> <img src="/img/pasglobe.jpg" alt="Illustration Pas globe"
+                                        width="350" height="424" loading="eager" class="w-full">
+                                </picture>
+                                <div class="pl-2.5">
+                                    <h5 class="text-3xl font-bold text-139c19 my-2.5">Pas globe</h5>
+                                    <p class="text-000 break-after-avoid">
+                                        Qui ut huic virilem togam detitnihil dicam hoc loco de me; tantum
+                                        sit, quantum vos existimatis; hoc dicam, hunc a patre continuo ad me
+                                        esse deduct.
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <picture> <!-- Version WebP (moderne, léger) -->
+                                    <source type="image/webp"
+                                        srcset="/img/pasblog-480w.webp 480w, /img/pasblog-768w.webp 768w, /img/pasblog.webp 350w"
+                                        sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                    <!-- Version JPG (fallback pour anciens navigateurs) -->
+                                    <source type="image/jpeg"
+                                        srcset="/img/pasblog-480w.jpg 480w, /img/pasblog-768w.jpg 768w, /img/pasblog.jpg 350w"
+                                        sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                                    <!-- Image par défaut --> <img src="/img/pasblog.jpg" alt="Illustration Pas blog"
+                                        width="350" height="381" loading="eager" class="w-full">
+                                </picture>
+                                <div class="pl-2.5">
+                                    <h6 class="text-3xl font-bold text-139c19 my-2.5">Pas blog</h6>
+                                    <p class="text-000 break-after-avoid">
+                                        Qui ut huic virilem togam detitnihil dicam hoc loco de me; tantum
+                                        sit, quantum vos existimatis; nemo hunc M. Caelium in illo aetatis
+                                        flore vidit nisi aut cum patre aut mecum aut in M. Crassi.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </aside>
+            </div>
+            <div class="flex flex-col w-full lg:w-[70%] lg:pr-10">
+                <section>
+                    <div class="flex items-center ml-2 md:ml-5">
+                        <div class="rounded-l-full bg-139c19 w-8 md:w-10 h-10 md:h-12.5"></div>
+                        <h2 class="ml-3 md:ml-5 font-bold text-2xl md:text-4xl text-139c19">
+                            Globule globe
+                        </h2>
+                    </div>
+                    <p class="italic text-muted-foreground ml-2 md:ml-5 mt-2.5 mb-2.5 text-sm md:text-base">
+                        Alios autem dicere aiunt multo etiam inhumanus (quem locum
+                        breviter paulo ante perstrinxi) praesidii adiumentique causa, non
+                        benevolentiae neque caritatis, amicitias esse expetendas; itaque,
+                        ut quisque minimum firmitatis haberet minimumque virium, ita
+                        amicitias appetere maxime; ex eo fieri ut mulierculae magis
+                        amicitiarum praesidia quaerant quam viri et inopes quam opulenti
+                        et calamitosi quam ii qui putent beati. Alios autem dicere aiunt
+                        multo etiam inhumanus (quem locum breviter paulo ante perstrinxi)
+                        praesidii adiumentique causa.
+                    </p>
+                </section>
+                <section>
+                    <div class="flex items-center ml-2 md:ml-5">
+                        <div class="rounded-l-full bg-139c19 w-8 md:w-10 h-10 md:h-12.5"></div>
+                        <h3 class="text-2xl md:text-4xl font-bold ml-3 md:ml-5 text-139c19">
+                            Globule pas globe
+                        </h3>
+                    </div>
+                    <p class="text-000 ml-2 md:ml-5 my-2.5 text-sm md:text-base">
+                        Dein Syria per speciosam interpretat diffusa planitiem. hanc
+                        nobilitat Antiochia, mundo cognita civitas, cui non certaverit
+                        alia advecticiis ita affluere copiis et internis, et Laodicia et
+                        Apamia itemque Seleucia iam inde a primis auspiciis
+                        florentissimae. Nam quibusdam, quos audio sapientes habitos in
+                        Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod
+                        illi non persequantur argutiis): partim fugiendas esse nimias
+                        amicitias.
+                    </p>
+                    <p class="text-000 ml-2 md:ml-5 my-2.5 text-sm md:text-base">
+                        Ne necesse sit unum sollicitum esse pro pluribus; satis superque
+                        esse sibi suarum cuique rerum, alienis nimis implicari molestum
+                        esse; commodissimum esse quam laxissimas habenas habere amicitiae,
+                        quas vel adducas, cum velis, vel remittas; caput enim esse ad
+                        beate vivendum securitatem, qua frui non possit animus, si tamquam
+                        parturiat unus pro pluribus.
+                    </p>
+                    <figure class="w-full md:float-left md:max-w-xs md:mr-5 mb-4">
+                        <picture> <!-- Version WebP (moderne, léger) -->
+                            <source type="image/webp"
+                                srcset="/img/globule-480w.webp 480w, /img/globule-768w.webp 768w, /img/globule.webp 500w"
+                                sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                            <!-- Version JPG (fallback pour anciens navigateurs) -->
+                            <source type="image/jpeg"
+                                srcset="/img/globule-480w.jpg 480w, /img/globule-768w.jpg 768w, /img/globule.jpg 500w"
+                                sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, {width}px">
+                            <!-- Image par défaut --> <img src="/img/globule.jpg"
+                                alt="Représentation microscopique d'un globule" width="500" height="333" loading="eager"
+                                class="w-full">
+                        </picture>
+                        <figcaption class="text-end text-sm">Gluon du globule</figcaption>
+                    </figure>
+                    <p class="text-000 ml-2 md:ml-5 my-2.5 text-sm md:text-base">
+                        Qui ut huic virilem togam dedit nihil dicam hoc loco de me; tantum
+                        ut existimatis; hoc dicam, hunc a patre continuo ad me esse
+                        deductum; nemo hunc M. Caelium in illo aetatis flore vidit nisi
+                        aut cum patre aut mecum aut M. Crassi castissima domo, cum artibus
+                        honestissimis erudiret. Nam quibusdam, quos audio sapientes
+                        habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil
+                        est quod illi non persequantur argutiis): partim fugiendas esse
+                        nimias amicitias, ne necesse sit unum sollicitum esse pro
+                        pluribus; satis superque esse sibi suarum cuique rerum, alienis
+                        nimis implicari molestum esse; commodissimum esse quam laxissimas
+                        habenas habere amicitiae, quas vel adducas, cum velis, vel
+                        remittas; caput enim esse ad beate vivendum securitatem, qua frui
+                        non possit animus, si tamquam parturiat unus pro pluribus.
+                    </p>
+                </section>
+                <section class="mb-6 md:mb-8">
+                    <div class="flex items-center ml-2 md:ml-5">
+                        <div class="rounded-l-full bg-139c19 w-8 md:w-10 h-10 md:h-12.5"></div>
+                        <h4 class="ml-3 md:ml-5 font-bold text-2xl md:text-4xl text-139c19">
+                            Tip globule au top du blog
+                        </h4>
+                    </div>
+                    <div
+                        class="columns-1 md:columns-2 gap-4 md:gap-8 ml-2 md:ml-5 mt-2.5 mb-2.5 md:[column-rule:2px_solid_var(--color-000)]">
+                        <p class="text-000 break-after-avoid-column text-sm md:text-base">
+                            Nam quisdam, quos audia sapientes habitos in Graecia, placuisse
+                            opinor mirabilia quaedam (sed nihil est quod illo nomine
+                            persequantur arguti): partim fugiendas esse nimias amicitias,
+                            necesse sit unum solicium esse pro pluribus; satis superque esse
+                            sibi suarum curique rerum; ex animo satis nimis simplicari
+                            solitum esse commodissimum esse quam laxissimas habenas habere
+                            amicitiae, quas vel adducas, cum velis, vel remittas; caput enim
+                            esse ad beate vivendum securitatem, qua frui non possit animus,
+                            si tamquam parturient unus pro pluribus. Verum ad istam communem
+                            orationem defensionis. Nam quoad aetis M. Caeli dare potuit
+                            istis suspicionis locum, fuit primum ipsius pudore, deinde etiam
+                            patris diligentia disciplinque munita. Qui ut huic virilem togam
+                            dedisti diutius hoc loco me dicam sit, quantum vos existimatis;
+                            hoc dicam, hunc a patre continuo ad me esse adductum, nemo hunc
+                            M. Caelium in illis aetatis flore vidit nisi aut cum patre aut
+                            mecum aut in M. Crassi castissima domo, cum artibus
+                            honestissimis erudiretur.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer class="border-t-2 border-139c19 mx-2 md:mx-5 py-2.5 text-center">
+            <nav class="flex flex-col sm:flex-row sm:justify-center gap-2 sm:gap-2.5"
+                aria-label="Liens du pied de page"> <a href="#"
+                    class="relative inline-block mx-0 sm:mx-2.5 py-2 px-3 md:px-4 bg-linear-to-b from-139c19 to-19b123 text-blanc rounded-xl hover:text-000 hover:bg-none hover:bg-15a51d80 transition-all text-sm md:text-base">lien
+                    footer</a> <a href="#"
+                    class="relative inline-block mx-0 sm:mx-2.5 py-2 px-3 md:px-4 bg-linear-to-b from-139c19 to-19b123 text-blanc rounded-xl hover:text-000 hover:bg-none hover:bg-15a51d80 transition-all text-sm md:text-base">lien
+                    footer</a> <a href="#"
+                    class="relative inline-block mx-0 sm:mx-2.5 py-2 px-3 md:px-4 bg-linear-to-b from-139c19 to-19b123 text-blanc rounded-xl hover:text-000 hover:bg-none hover:bg-15a51d80 transition-all text-sm md:text-base">lien
+                    footer</a> <a href="#"
+                    class="relative link inline-block mx-0 sm:mx-2.5 py-2 px-3 md:px-4 bg-linear-to-b from-139c19 to-19b123 text-blanc rounded-xl hover:text-000 hover:bg-none hover:bg-15a51d80 transition-all text-sm md:text-base">lien
+                    footer</a> </nav>
+        </footer>
+    </div>
+</body>
+
+</html>

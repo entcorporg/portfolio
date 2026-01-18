@@ -1,14 +1,21 @@
 ---
 import ProjectLayout from "../../layouts/ProjectLayout.astro";
-import { ProjectDetail } from "../../content/ProjectDetail";
+import { getAllSlugs } from "../../content/projects.config";
+import { LibrairieIndependante } from "../../content/Librairie-Independante";
+import { LeGlobule } from "../../content/Le-Globule";
+import { StreetLife } from "../../content/Street-Life";
 
 export function getStaticPaths() {
-  return [{ params: { slug: "librairie-independante" } }];
+  return getAllSlugs().map((slug) => ({
+    params: { slug },
+  }));
 }
 
 const { slug } = Astro.params;
 ---
 
 <ProjectLayout>
-  <ProjectDetail slug={slug!} client:load />
+  {slug === "librairie-independante" && <LibrairieIndependante client:load />}
+  {slug === "le-globule" && <LeGlobule client:load />}
+  {slug === "street-life" && <StreetLife client:load />}
 </ProjectLayout>

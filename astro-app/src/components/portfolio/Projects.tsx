@@ -2,37 +2,38 @@ import * as React from "react";
 import { FadeIn } from "@/components/ui/fade-in";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, PlusIcon } from "lucide-react";
+import { ArrowUpRight, Github, PlusIcon } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useRef, useState } from "react";
 import { Cursor } from "../motion-primitives/cursor";
+import { getAllProjectsMetadata } from "@/content/projects.config";
 
 export function Projects() {
-  const projects = [
-    {
-      id: 1,
-      slug: "librairie-independante",
-      title: "Librairie L'indépendante",
-      description:
-        "Site web optimisé pour une librairie indépendante fictive. Performance 100/100 sur Google Lighthouse.",
-      image:
-        "https://raw.githubusercontent.com/entcorporg/cour_Se_Perfectionner_en_HTML-CSS/main/docs/img/bandeau.webp",
-      technologies: ["HTML5", "CSS3", "JavaScript", "Docker", "Apache"],
-      githubUrl:
-        "https://github.com/entcorporg/cour_Se_Perfectionner_en_HTML-CSS.git",
-      featured: true,
-    },
-  ];
+  const projects = getAllProjectsMetadata();
 
   const [isHovering, setIsHovering] = useState(false);
-  const targetRef = useRef<HTMLAnchorElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const handlePositionChange = (x: number, y: number) => {
-    if (targetRef.current) {
-      const rect = targetRef.current.getBoundingClientRect();
-      const isInside =
-        x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
-      setIsHovering(isInside);
+    if (containerRef.current) {
+      const cards = containerRef.current.querySelectorAll(
+        "a[data-project-card]",
+      );
+      let hovering = false;
+
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        if (
+          x >= rect.left &&
+          x <= rect.right &&
+          y >= rect.top &&
+          y <= rect.bottom
+        ) {
+          hovering = true;
+        }
+      });
+
+      setIsHovering(hovering);
     }
   };
 
@@ -52,7 +53,10 @@ export function Projects() {
           </p>
         </FadeIn>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+          ref={containerRef}
+          className="mt-16 grid grid-cols-1 gap-6 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3"
+        >
           <Cursor
             attachToParent
             variants={{
@@ -74,7 +78,7 @@ export function Projects() {
                 width: isHovering ? 80 : 16,
                 height: isHovering ? 32 : 16,
               }}
-              className="flex items-center justify-center rounded-3xl bg-gray-500/40 backdrop-blur-md dark:bg-gray-300/40"
+              className="flex items-center justify-center rounded-3xl bg-gray-500/40 backdrop-blur-md dark:bg-gray-300/40 mb-6"
             >
               <AnimatePresence>
                 {isHovering ? (
@@ -85,7 +89,8 @@ export function Projects() {
                     className="inline-flex w-full items-center justify-center"
                   >
                     <div className="inline-flex items-center text-sm text-white dark:text-black">
-                      More <PlusIcon className="ml-1 h-4 w-4" />
+                      More{" "}
+                      <ArrowUpRight className="ml-1 h-4 w-4 animate__animated animate__heartBeat animate__infinite" />
                     </div>
                   </motion.div>
                 ) : null}
@@ -95,7 +100,7 @@ export function Projects() {
           {projects.map((project) => (
             <a
               key={project.id}
-              ref={targetRef}
+              data-project-card
               href={`/projets/${project.slug}`}
               className="relative rounded-lg border overflow-hidden group hover:shadow-xl transition-shadow duration-300"
             >
