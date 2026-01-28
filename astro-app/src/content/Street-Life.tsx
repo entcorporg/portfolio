@@ -41,7 +41,7 @@ export function StreetLife() {
     description:
       "Site web lifestyle présentant du contenu sur la culture urbaine et la vie de rue. Magazine web avec navigation multi-pages (Accueil, Archives, Panorama, Contact, À propos), design responsive moderne et architecture CSS modulaire avec classes utilitaires. Design sophistiqué démontrant une maîtrise de la typographie élégante, espaces blancs stratégiques, et maquettes de formulaires. Projet purement HTML/CSS déployé sur GitHub Pages avec domaine personnalisé.",
     image:
-      "https://raw.githubusercontent.com/entcorporg/html_avancer_1_devoir_exercice-2/main/site/img/cinema.jpg",
+      "https://raw.githubusercontent.com/entcorporg/html_avancer_1_devoir_exercice-2/main/docs/img/cinema.jpg",
     technologies: [
       "HTML5",
       "CSS3",
