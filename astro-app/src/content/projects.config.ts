@@ -42,7 +42,7 @@ export const projectsConfig: ProjectMetadata[] = [
         description:
             "Magazine web lifestyle avec design sophistiqué, typographie élégante, et layouts Flexbox complexes.",
         image:
-            "https://raw.githubusercontent.com/entcorporg/html_avancer_1_devoir_exercice-2/main/site/img/cinema.jpg",
+            "https://raw.githubusercontent.com/entcorporg/html_avancer_1_devoir_exercice-2/main/docs/img/cinema.jpg",
         technologies: ["HTML5", "CSS3", "JavaScript ES6", "Docker", "Apache", "WebP", "Flexbox"],
         githubUrl:
             "https://github.com/entcorporg/html_avancer_1_devoir_exercice-2",
